@@ -21,3 +21,7 @@ def letter_query_view(request, filter_choice, order_choice):
 def letter_single_view(request, letter_pk):
     context = {}
     return render(request, 'letter/index.html', context)
+
+def letter_city_view(request, city_info):
+    context = {}
+    return render(request, 'letter/city_view.html', context)
