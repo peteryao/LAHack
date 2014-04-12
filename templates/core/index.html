@@ -1,5 +1,18 @@
 {% extends 'core/base.html' %}
 
+{% block style %}
+<link rel="stylesheet" media="all" href="{{ STATIC_URL }}css/jquery-jvectormap-1.2.2.css"/>
+{% endblock %}
+
 {% block content %}
 Index Page
+<div style="width: 1000px; height: 600px" class="jvectormap jvectormap-mill" id="map"></div>
+{% endblock %}
+
+{% block script %}
+    <script src="{{ STATIC_URL }}js/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery-jvectormap-world-mill-en.js"></script>
+    <script>
+    $('#map').vectorMap({map: 'world_mill_en'});
+    </script>
 {% endblock %}
