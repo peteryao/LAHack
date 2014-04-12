@@ -6,56 +6,14 @@ asdf
 
 </div>
 <div class="large-10 columns" style="z-index:-1; top:88px" id="page-wrap">
-    <ul class="small-block-grid-3">
+    {% for letter in recent_letters %}
+    {% if forloop.counter0|divisibleby:3 %}<ul class="small-block-grid-3">{% endif %}
         <li>
             <div class="row" style="background-color:#ffffdc; height:300px">
-            1
+            {{letter}}
             </div>
         </li>
-        <li>
-            <div class="row" style="background-color:#ffffdc; height:300px">
-            2
-            </div>
-        </li>
-        <li>
-            <div class="row" style="background-color:#ffffdc; height:300px">
-            3
-            </div>
-        </li>
-    </ul>
-    <ul class="small-block-grid-3">
-        <li>
-            <div class="row" style="background-color:#ffffdc; height:300px">
-            1
-            </div>
-        </li>
-        <li>
-            <div class="row" style="background-color:#ffffdc; height:300px">
-            2
-            </div>
-        </li>
-        <li>
-            <div class="row" style="background-color:#ffffdc; height:300px">
-            3
-            </div>
-        </li>
-    </ul>
-    <ul class="small-block-grid-3">
-        <li>
-            <div class="row" style="background-color:#ffffdc; height:300px">
-            1
-            </div>
-        </li>
-        <li>
-            <div class="row" style="background-color:#ffffdc; height:300px">
-            2
-            </div>
-        </li>
-        <li>
-            <div class="row" style="background-color:#ffffdc; height:300px">
-            3
-            </div>
-        </li>
-    </ul>
+    {% if forloop.counter|divisibleby:3 %}</ul>{% endif %}
+    {% endfor %}
 </div>
 {% endblock %}

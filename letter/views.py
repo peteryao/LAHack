@@ -16,6 +16,8 @@ def letter_list_view(request):
 
 def letter_query_view(request, filter_choice, order_choice):
     context = {}
+    context['recent_letters'] = Letter.objects.all()[:9]
+
     return render(request, 'letter/query_view.html', context)
 
 def letter_single_view(request, letter_pk):
