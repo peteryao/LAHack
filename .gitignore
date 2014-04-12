@@ -1,3 +1,8 @@
+# Personal Additions
+venv
+db
+static
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
