@@ -11,19 +11,24 @@
     {% endblock style %}
   </head>
   <body>
-
-    <div class="row">
+  <div style="background-color: #2A2C31; height: 88px;box-shadow: 3px 3px 10px 5px #000;">
+      <div class="large-4 columns">
+        asdf
+      </div>
+      <div class="large-4 columns">
+      </div>
+      <div class="large-4 columns">
+        send!
+      </div>
+    <div class="row" >
       <div class="large-12 columns">
-        <h1>Love Your City</h1>
+        <div style="text-align:center;"><h4>Love Your City</h4></div>
       </div>
     </div>
-
-    <div class="row">
-        <div class="large-12 columns">
-            {% block content %}
-            {% endblock content %}
-        </div>
     </div>
+
+    {% block content %}
+    {% endblock content %}
 
     <script src="{{ STATIC_URL }}js/vendor/jquery.js"></script>
     <script src="{{ STATIC_URL }}js/foundation.min.js"></script>

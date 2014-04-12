@@ -5,13 +5,15 @@
 {% endblock %}
 
 {% block content %}
-<div style="width: 1000px; height: 600px" class="jvectormap jvectormap-mill" id="map"></div>
+<div style="width: 1436px; height: 604px" class="jvectormap jvectormap-mill" id="map"></div>
+
+<div style="height: 114px; background-color: #FFFFDC">____________________________|____________________________|____________________________|____________________________|____________________________|____________________________|____________________________|____________________________|____________________________|____________________________|____________________________|____________________________|____________________________|</div>
 {% endblock %}
 
 {% block script %}
     <script src="{{ STATIC_URL }}js/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="{{ STATIC_URL }}js/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery-jvectormap-us-aea-en.js"></script>
     <script>
-    $('#map').vectorMap({map: 'world_mill_en'});
+    $('#map').vectorMap({map: 'us_aea_en'});
     </script>
 {% endblock %}
