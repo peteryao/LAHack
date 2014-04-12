@@ -1,61 +1,30 @@
 {% extends 'core/base.html' %}
 
-{% block content %}
-<div class="large-2 columns" style="background-color:#FFFFDC; z-index:-1;" id="sidebar">
-asdf
-</div>
+{% load cropping %}
 
-<div class="large-10 columns" style="z-index:-1; top:88px" id="page-wrap">
-    <ul class="small-block-grid-3">
-        <li>
-            <div class="row" style="background-color:#ffffdc; height:300px">
-            1
-            </div>
+{% block content %}
+<div class="col-md-2" style="background-color:#FFFFDC; height:720px;" id='sidebar'>
+<div class="row" style="margin-top:15px">
+Etiam id imperdiet urna. Praesent tempus pellentesque neque, at vehicula urna sollicitudin venenatis. Cras lacus velit, adipiscing eu cursus in, scelerisque vitae nibh. Ut quis tellus augue. Suspendisse potenti. Mauris a mattis tellus. In hac habitasse platea dictumst. Integer quis libero sem. Cras malesuada massa id imperdiet placerat. Morbi sodales tincidunt leo ut euismod. Sed bibendum orci ut nisi tempus porta eu quis est. Phasellus porttitor volutpat euismod. Donec in gravida dui.</div>
+<hr>
+<select class="form-control" style="margin-top:15px">
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+</select>
+</div>
+<div class="col-md-10" style="z-index:-1;background-color:#AAB3AB; height:720px;" id="page-wrap">
+    {% for letter in recent_letters %}
+    {% if forloop.counter0|divisibleby:3 %}<div class="row">{% endif %}
+        <div class="col-md-3" style="background-color:#ffffdc; height:300px; margin:20px; box-shadow: 3px 3px 10px 5px #000;">
+            <div>{{letter}}</div>
+            {% if letter.photo_thumb %}<img src='{% cropped_thumbnail letter "photo_thumb" width=150 %}' />{% endif %}
+            <div>{{letter.text|truncatewords:30}}</div>
+        </div>
         </li>
-        <li>
-            <div class="row" style="background-color:#ffffdc; height:300px">
-            2
-            </div>
-        </li>
-        <li>
-            <div class="row" style="background-color:#ffffdc; height:300px">
-            3
-            </div>
-        </li>
-    </ul>
-    <ul class="small-block-grid-3">
-        <li>
-            <div class="row" style="background-color:#ffffdc; height:300px">
-            1
-            </div>
-        </li>
-        <li>
-            <div class="row" style="background-color:#ffffdc; height:300px">
-            2
-            </div>
-        </li>
-        <li>
-            <div class="row" style="background-color:#ffffdc; height:300px">
-            3
-            </div>
-        </li>
-    </ul>
-    <ul class="small-block-grid-3">
-        <li>
-            <div class="row" style="background-color:#ffffdc; height:300px">
-            1
-            </div>
-        </li>
-        <li>
-            <div class="row" style="background-color:#ffffdc; height:300px">
-            2
-            </div>
-        </li>
-        <li>
-            <div class="row" style="background-color:#ffffdc; height:300px">
-            3
-            </div>
-        </li>
-    </ul>
+    {% if forloop.counter|divisibleby:3 %}</div>{% endif %}
+    {% endfor %}
 </div>
 {% endblock %}
