@@ -22,3 +22,11 @@
 body {
     height: 2000px;
 }
+
+#page-wrap {
+  position: relative;
+}
+
+#sidebar {
+  position: fixed;
+}
