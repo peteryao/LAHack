@@ -1,39 +1,49 @@
-<!doctype html>
-<html class="no-js" lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/foundation.css" />
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" />
-    <script src="{{ STATIC_URL }}js/vendor/modernizr.js"></script>
-    {% block style %}
-    {% endblock style %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Fixed Top Navbar Example for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="navbar-fixed-top.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
+
   <body>
-  <div class="header">
-      <div class="large-4 columns">
-        asdf
-      </div>
-      <div class="large-4 large-offset-4 columns" style="text-align:right">
-        send!
-      </div>
-    <div class="row" >
-      <div class="large-12 columns">
-        <div style="text-align:center;"><h4>Love Your City</h4></div>
-      </div>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+
     </div>
-  </div>
-  <div>
-  {% block content %}
-  {% endblock content %}
-  </div>
-  <script src="{{ STATIC_URL }}js/vendor/jquery.js"></script>
-  <script src="{{ STATIC_URL }}js/foundation.min.js"></script>
-  <script>
-    $(document).foundation();
-  </script>
-  {% block script %}
-  {% endblock script %}
+
+    <div class="container">
+    {% block content %}
+    {% endblock content %}
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}/js/bootstrap.min.js"></script>
   </body>
 </html>

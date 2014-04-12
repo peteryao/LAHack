@@ -1,19 +1,31 @@
 {% extends 'core/base.html' %}
 
-{% block content %}
-<div class="large-2 columns test" style="background-color:#ffffdc; height:100%; z-index:-1" id="sidebar">
-asdf
+{% load cropping %}
 
+{% block content %}
+<div class="large-2 columns" style="background-color:#FFFFDC; z-index:-1;" id="sidebar">
+<select>
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select>
 </div>
-<div class="large-10 columns" style="z-index:-1; top:88px" id="page-wrap">
+<div class="large-10 columns" style="z-index:-1; top:95px; background-color:#AAB3AB; height:720px" id="page-wrap">
     {% for letter in recent_letters %}
     {% if forloop.counter0|divisibleby:3 %}<ul class="small-block-grid-3">{% endif %}
         <li>
             <div class="row" style="background-color:#ffffdc; height:300px">
-            {{letter}}
+            <div>{{letter}}</div>
+            {% if letter.photo_thumb %}<img src='{% cropped_thumbnail letter "photo_thumb" width=150 %}' />{% endif %}
+            <div>{{letter.text|truncatewords:30}}</div>
             </div>
         </li>
     {% if forloop.counter|divisibleby:3 %}</ul>{% endif %}
     {% endfor %}
 </div>
+{% endblock %}
+
+{% block script %}
+<script src="{{ STATIC_URL }}js/foundation/foundation.dropdown.js"></script>
 {% endblock %}

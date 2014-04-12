@@ -3,6 +3,8 @@ from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User
 
+import image_cropping
+
 from core.models import TimeStampedModel
 from core import utils
 
