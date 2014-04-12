@@ -1,0 +1,19 @@
+.header{
+    background-color: #2A2C31;
+    height: 88px;
+    position: relative;
+    box-shadow: 3px 3px 10px 5px #000;
+}
+
+.page-wrap {
+  position: relative;
+  background-color: #2A2C31;
+  height: 600px;
+}
+
+.sidebar {
+  position: fixed;
+  background-color: #2A2C31;
+  height: 600px;
+}
+

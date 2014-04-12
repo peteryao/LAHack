@@ -4,6 +4,10 @@
 
 {% block content %}
 <div class="col-md-2" style="background-color:#FFFFDC; height: 720px;" id='sidebar'>
+<div class="row" style="background-color:#e7a700; height:100px">
+    <br /><br />
+    <div class="col-md-4 col-md-offset-1"><h5><b>FILTER</b></h5></div>
+</div>
 <select class="form-control" style="margin-top:15px">
   <option>1</option>
   <option>2</option>
@@ -14,8 +18,8 @@
 </div>
 <div class="col-md-10" style="z-index:-1;background-color:#AAB3AB; height:720px;" id="page-wrap">
     {% for letter in recent_letters %}
-    {% if forloop.counter0|divisibleby:3 %}<div class="row">{% endif %}
-        <div class="col-md-3" style="background-color:#ffffdc; height:300px; margin:20px; box-shadow: 3px 3px 10px 5px #000;">
+    {% if forloop.counter0|divisibleby:3 %}<div class="row" {% if forloop.first %}style="padding-top:35px"{% endif %}>{% endif %}
+        <div class="col-md-3" id="curved_letter">
             <div>{{letter}}</div>
             {% if letter.photo_thumb %}<img src='{% cropped_thumbnail letter "photo_thumb" width=150 %}' />{% endif %}
             <div>{{letter.text|truncatewords:30}}</div>
