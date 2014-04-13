@@ -1,5 +1,9 @@
 from django.contrib import admin
+from image_cropping import ImageCroppingMixin
 
 from .models import Letter
 
-admin.site.register(Letter)
+class LetterAdmin(ImageCroppingMixin, admin.ModelAdmin):
+    pass
+
+admin.site.register(Letter, LetterAdmin)

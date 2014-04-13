@@ -21,7 +21,7 @@ def letter_list_view(request):
 
 def letter_query_view(request, filter_choice):
     context = {}
-    context['recent_letters'] = Letter.objects.all()[6:]
+    context['recent_letters'] = Letter.objects.all()[:6]
     if(int(filter_choice) == 1):
         no_texts = []
         for letter in Letter.objects.all():
@@ -64,8 +64,22 @@ def letter_single_view(request, letter_pk):
 
 def letter_city_view(request, city_info, filter_choice):
     context = {}
-    print city_info
-    print filter_choice
+    city_new = Letter.objects.filter(name__contains=city_info)
+    print city_new
+    context['recent_letters'] = city_new
+    if(int(filter_choice) == 1):
+        no_texts = []
+        for letter in city_new:
+            if not letter.photo:
+                no_texts.append(letter)
+        context['recent_letters'] = no_texts
+    if(int(filter_choice) == 2):
+        no_photo = []
+        for letter in city_new:
+            if letter.photo:
+                no_photo.append(letter)
+        context['recent_letters'] = no_photo
+    context['filter'] = int(filter_choice)
     return render(request, 'letter/city_view.html', context)
 
 def letter_submit(request):
