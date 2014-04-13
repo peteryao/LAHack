@@ -1,4 +1,5 @@
 import datetime
+from PIL import Image
 
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -20,7 +21,7 @@ def letter_list_view(request):
 
 def letter_query_view(request, filter_choice):
     context = {}
-    context['recent_letters'] = Letter.objects.all()[:9]
+    context['recent_letters'] = Letter.objects.all()[6:]
     if(int(filter_choice) == 1):
         no_texts = []
         for letter in Letter.objects.all():
@@ -39,7 +40,26 @@ def letter_query_view(request, filter_choice):
 
 def letter_single_view(request, letter_pk):
     context = {}
+    letter = Letter.objects.get(pk=letter_pk)
+
     context['letter'] = Letter.objects.get(pk=letter_pk)
+    context['letter'].view_number += 1
+    context['letter'].save()
+
+    if not letter.photo:
+        return render(request, 'letter/all_text_no_img.html', context)
+
+    if not letter.text:
+        return render(request, 'letter/image_no_text_letter.html', context)
+
+    im = Image.open(letter.photo)
+    photo_size = im.size
+
+    if (photo_size[0] / photo_size[1] > 1.8):
+        return render(request, 'letter/small_picture_text.html', context)
+
+    if (photo_size[0] / photo_size[1] > 3):
+        return redner(request, 'small_picture_text', context, html )
     return render(request, 'letter/half_and_half.html', context)
 
 def letter_city_view(request, city_info):

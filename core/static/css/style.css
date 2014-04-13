@@ -21,6 +21,12 @@
     overflow: hidden;
 }
 
+#curved_letter a {
+    color: #ffffdc;
+    text-decoration: none;
+    margin-top: 6px;
+}
+
 #curved_letter_child {
     background-color:#2A2C31;
     color:#e7a700;

@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 import image_cropping
 
@@ -9,8 +10,8 @@ from core.models import TimeStampedModel
 from core import utils
 
 class Letter(TimeStampedModel):
-    name = models.CharField(max_length=2000)
-    text = models.TextField(max_length=500)
+    name = models.CharField(max_length=500)
+    text = models.TextField(max_length=2000, blank=True)
     view_number = models.IntegerField(default=0)
 
     def photo_upload_to(self, filename):

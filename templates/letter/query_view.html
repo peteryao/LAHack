@@ -17,7 +17,7 @@
     {% for letter in recent_letters %}
     {% if forloop.counter0|divisibleby:3 %}<div class="container-fluid" {% if forloop.first %}style="padding-top:35px"{% endif %}>{% endif %}
         <div class="col-md-3" id="curved_letter">
-            <div id="curved_letter_child"><h4>{{letter}}</h4></div>
+            <div id="curved_letter_child"><h4><a href="{% url 'single_letter_view' letter.id %}">{{letter}}</a></h4></div>
             {% if letter.photo_thumb %}<center><img src='{% cropped_thumbnail letter "photo_thumb" width=225 %}'/></center>
             <div><center>{{letter.text|truncatewords:5}}</center></div>
             {% else %}<div>{{letter.text|truncatewords:60}}</div>{% endif %}
