@@ -5,7 +5,8 @@
     height: 88px;
     top: 0;
     z-index: 1;
-    box-shadow: 3px 3px 10px 5px #000;
+    box-shadow: 3px 3px 5px 5px #2A2C31;
+    line-height: 88px;
 }
 #container{
     margin-top: 88px;
@@ -17,6 +18,18 @@
     background-color:#ffffdc;
     height:300px;
     margin:20px;
+    overflow: hidden;
+}
+
+#curved_letter_child {
+    background-color:#2A2C31;
+    color:#e7a700;
+    width:115%;
+    position: relative;
+    text-align: center;
+    left: -20px;
+    bottom: 10px;
+    height: 30px;
 }
 
 body {
@@ -29,4 +42,13 @@ body {
 
 #sidebar {
   position: fixed;
+}
+
+.modal-backdrop, .modal-backdrop.fade.in {
+    background-color: #e7a700;
+    opacity: 0.95;
+}
+
+textarea {
+    resize: none;
 }

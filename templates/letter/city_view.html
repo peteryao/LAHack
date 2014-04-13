@@ -3,26 +3,33 @@
 {% load cropping %}
 
 {% block content %}
-<div class="col-md-2" style="background-color:#FFFFDC; height:720px;" id='sidebar'>
-<div class="row" style="margin-top:15px">
-Etiam id imperdiet urna. Praesent tempus pellentesque neque, at vehicula urna sollicitudin venenatis. Cras lacus velit, adipiscing eu cursus in, scelerisque vitae nibh. Ut quis tellus augue. Suspendisse potenti. Mauris a mattis tellus. In hac habitasse platea dictumst. Integer quis libero sem. Cras malesuada massa id imperdiet placerat. Morbi sodales tincidunt leo ut euismod. Sed bibendum orci ut nisi tempus porta eu quis est. Phasellus porttitor volutpat euismod. Donec in gravida dui.</div>
-<hr>
-
-<select class="form-control" style="margin-top:15px">
-  <option>1</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
-</select>
+<div class="col-md-2" style="background-color:#FFFFDC; height: 720px;" id='sidebar'>
+    <div class="row" style="background-color:#e7a700; height:160px;"><br />
+        <div class="col-md-12" style="vertical-align:bottom"><br /><br /><br /><br /><h4>DAVIS, CALIFORNIA</h4></div>
+    </div>
+    <div class="row" style="background-color:#FFFFDC; height:160px;">
+        <div class="col-md-12"><br /><h4>Associated Phrases:</h4></div>
+        <div class="col-md-12"><br />
+            Bikes, Cows, Death Star, Picnic Day, UC Davis, YOLO
+        </div>
+    </div>
+    <div class="row" style="background-color:#e7a700; height:80px;"><br />
+        <div class="col-md-4" style="vertical-align:middle"><h4><b>FILTER</b></h4></div>
+    </div>
+    <ul class="nav nav-pills nav-stacked" style="padding-top:30px">
+        <li {% if filter == 0 %}class="active"{% endif %} style="margin:15px"><a href="{% url 'letter_query_view' 0 %}">All</a></li>
+        <li {% if filter == 1 %}class="active"{% endif %} style="margin:15px"><a href="{% url 'letter_query_view' 1 %}">Text Only</a></li>
+        <li {% if filter == 2 %}class="active"{% endif %} style="margin:15px"><a href="{% url 'letter_query_view' 2 %}">Media Only</a></li>
+</ul>
 </div>
-<div class="col-md-10" style="z-index:-1;background-color:#AAB3AB; height:720px;" id="page-wrap">
+<div class="col-md-10 pull-right" style="z-index:-1;background-color:#AAB3AB; height:720px;" id="page-wrap">
     {% for letter in recent_letters %}
-    {% if forloop.counter0|divisibleby:3 %}<div class="row">{% endif %}
+    {% if forloop.counter0|divisibleby:3 %}<div class="container-fluid" {% if forloop.first %}style="padding-top:35px"{% endif %}>{% endif %}
         <div class="col-md-3" id="curved_letter">
-            <div>{{letter}}</div>
-            {% if letter.photo_thumb %}<img src='{% cropped_thumbnail letter "photo_thumb" width=150 %}' />{% endif %}
-            <div>{{letter.text|truncatewords:30}}</div>
+            <div id="curved_letter_child"><h4>{{letter}}</h4></div>
+            {% if letter.photo_thumb %}<center><img src='{% cropped_thumbnail letter "photo_thumb" width=225 %}'/></center>
+            <div><center>{{letter.text|truncatewords:5}}</center></div>
+            {% else %}<div>{{letter.text|truncatewords:60}}</div>{% endif %}
         </div>
         </li>
     {% if forloop.counter|divisibleby:3 %}</div>{% endif %}

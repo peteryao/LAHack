@@ -14,9 +14,22 @@ def letter_list_view(request):
     context = {}
     return render(request, 'letter/list_view.html', context)
 
-def letter_query_view(request, filter_choice, order_choice):
+def letter_query_view(request, filter_choice):
     context = {}
     context['recent_letters'] = Letter.objects.all()[:9]
+    if(int(filter_choice) == 1):
+        no_texts = []
+        for letter in Letter.objects.all():
+            if not letter.photo:
+                no_texts.append(letter)
+        context['recent_letters'] = no_texts
+    if(int(filter_choice) == 2):
+        no_photo = []
+        for letter in Letter.objects.all():
+            if letter.photo:
+                no_photo.append(letter)
+        context['recent_letters'] = no_photo
+    context['filter'] = int(filter_choice)
 
     return render(request, 'letter/query_view.html', context)
 

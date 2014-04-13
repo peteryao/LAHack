@@ -11,32 +11,42 @@
 
     <title>LYC</title>
 
-    <!-- Bootstrap core CSS -->
     <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
     <link href="{{ STATIC_URL }}css/navbar-fixed-top.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}css/style.css" rel="stylesheet">
     {% block style %}
     {% endblock %}
-
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
 
   <body>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" style="top:100px">
+        <div class="modal-content">
+          <div class="modal-body" style="height:600px;">
+            <div class="row-fluid">
+              <div class="col-md-8">
+                <textarea name="textarea" id="textarea" rows="28" cols="83">Dear ,
+                </textarea>
+              </div>
+              <div class="col-md-4" style="border-width:3px; border-left-style:solid; height:600px; top:-20px">
+                <div style="padding-top:280px"><center><button type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-upload"></span></button></center></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div><center><button type="button" class="btn" style="width:85%; background-color:#2A2C31; color:#e7a700;">SEAL + SEND</button></center></div>
+      </div>
+    </div>
 
     <!-- Fixed navbar -->
     <div class="header" id="header-wrap">
-      <button type="button" class="btn btn-default btn-lg pull-left"><span class="glyphicon glyphicon-th"></span></button>
-      <div class="col-md-2 col-md-offset-5 pull-left"><img src="{{ STATIC_URL }}img/lyc_logo.png" width=75% /></div>
-      <button type="button" class="btn btn-default btn-lg pull-right"><span class="glyphicon glyphicon-heart-empty pull-right"></span></button>
+      <div class="row">
+        <button type="button" class="btn btn-default col-xs-1" style="vertical-align:middle; top:30px; left:25px;"><span class="glyphicon glyphicon-th"></span></button>
+        <div class="col-md-2 col-xs-offset-4 pull-left"><img src="{{ STATIC_URL }}img/lyc_logo.png" width=75% /></div>
+        <button type="button" class="btn btn-primary col-xs-1 pull-right" data-toggle="modal" data-target="#myModal" style="vertical-align:middle; top:30px; right:30px;"><center><span class="glyphicon glyphicon-th"></span></button>
+      </div>
     </div>
 
     <div id="container">
@@ -44,11 +54,7 @@
     {% endblock content %}
     </div> <!-- /container -->
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}/js/jquery.js"></script>
     <script src="{{ STATIC_URL }}/js/bootstrap.min.js"></script>
     {% block script %}
     {% endblock %}
