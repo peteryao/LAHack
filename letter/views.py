@@ -41,9 +41,10 @@ def letter_query_view(request, filter_choice):
 def letter_single_view(request, letter_pk):
     context = {}
     letter = Letter.objects.get(pk=letter_pk)
+    context['single_pic_view'] = True
 
     letter.view_number += 1
-    letter.save()
+    letter.save(update_fields=['view_number'])
     context['letter'] = letter
 
     if not letter.photo:
