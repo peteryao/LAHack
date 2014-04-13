@@ -55,9 +55,11 @@ def letter_single_view(request, letter_pk):
 
     im = Image.open(letter.photo)
     photo_size = im.size
+    print photo_size[0]
+    print photo_size[1]
 
     if (photo_size[0] / photo_size[1] > 1.8):
-        return render(request, 'letter/small_picture_text.html', context)
+        return render(request, 'letter/half_and_half    .html', context)
 
     if (photo_size[0] / photo_size[1] > 3):
         return redner(request, 'small_picture_text', context, html )

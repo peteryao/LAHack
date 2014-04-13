@@ -5,7 +5,7 @@
 {% block content %}
 <div class="row-fluid">
         <div class="col-md-8 col-md-offset-2 letter_highlight" style="background-color:#FFFFDC; margin-top:30px;">
-            <img src='{% cropped_thumbnail letter "photo_thumb" %}' style="height:600px; right:30px" class="col-md-10"/>
+            <img src='{{ MEDIA_URL }}{{letter.photo}}' style="height:600px; right:30px" class="col-md-10"/>
             <div class="col-md-1 pull-right right_header_button" style="top:500px"></div>
         </div>
 </div>
