@@ -33,7 +33,7 @@
 }
 
 body {
-    height: 2000px;
+    background-color: #AAB3AB;
 }
 
 #page-wrap {
@@ -51,4 +51,43 @@ body {
 
 textarea {
     resize: none;
+}
+
+.index_left_header_button {
+    width: 75px;
+    height: 75px;
+    margin: 5px;
+    left: 5px;
+    background-image: url('../img/List-Active.png');
+}
+.index_left_header_button:hover {
+    background-image: url('../img/List-Hover.png');
+}
+
+.right_header_button {
+    width: 82px;
+    height: 82px;
+    margin: 5px;
+    right: 20px;
+    background-image: url('../img/NewLetter-Active.png');
+}
+.right_header_button:hover {
+    background-image: url('../img/NewLetter-Hover.png');
+}
+
+.left_header_button {
+    display: block;
+    width: 90px;
+    height: 90px;
+    left: 10px;
+    background: url('../img/Map-Active.png') bottom;
+}
+.left_header_button:hover {
+    background-image: url('../img/Map-Hover.png');
+}
+
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

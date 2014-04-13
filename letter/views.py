@@ -8,6 +8,7 @@ from django.core.context_processors import csrf
 from django.shortcuts import render_to_response
 
 from .models import Letter
+from core.views import index
 
 def letter_index(request):
     context = {}
@@ -51,8 +52,9 @@ def letter_submit(request):
 
     letter = Letter(text=text_input, name="Los Angeles, California")
     # path = letter.photo_upload_to(request.FILES['image_upload'])
-    letter.photo = request.FILES['image_upload']
+    if('image_upload' in request.FILES):
+        letter.photo = request.FILES['image_upload']
 
     letter.save()
 
-    return redirect('letter/index.html', context)
+    return redirect('index')

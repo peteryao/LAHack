@@ -24,7 +24,7 @@
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" style="top:100px">
         <div class="modal-content">
-        <form action="{% url 'letter_submit' %}" enctype="multipart/form-data" method="post">>
+        <form action="{% url 'letter_submit' %}" enctype="multipart/form-data" method="post">
         {% csrf_token %}
           <div class="modal-body" style="height:600px;">
             <div class="row-fluid">
@@ -33,7 +33,7 @@
               </div>
               <div class="col-md-4" style="border-width:3px; border-left-style:solid; height:600px; top:-20px">
                 <div class="fileinput fileinput-new" data-provides="fileinput">
-                  <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">Uplopad Files here</div>
+                  <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 270px; height: 530px; margin-top:20px;">Upload Files Here</div>
                   <div>
                     <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="image_upload"></span>
                     <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
@@ -51,9 +51,13 @@
     <!-- Fixed navbar -->
     <div class="header" id="header-wrap">
       <div class="row">
-        <button type="button" class="btn btn-default col-xs-1" style="vertical-align:middle; top:30px; left:25px;"><span class="glyphicon glyphicon-th"></span></button>
-        <div class="col-md-2 col-xs-offset-4 pull-left"><img src="{{ STATIC_URL }}img/LogoExtended.png" width=75% /></div>
-        <button type="button" class="btn btn-primary col-xs-1 pull-right" data-toggle="modal" data-target="#myModal" style="vertical-align:middle; top:30px; right:30px;"><center><span class="glyphicon glyphicon-th"></span></button>
+        {% if index_page %}
+        <div class="col-md-2 index_left_header_button" onclick="location.href='{% url 'letter_query_view' 0 %}'">&nbsp;</div>
+        {% else %}
+        <div class="col-md-2 left_header_button" onclick="location.href='{% url 'index' %}'">&nbsp;</div>
+        {% endif %}
+        <div class="col-md-1 col-md-offset-4"><img src="{{ STATIC_URL }}img/LogoExtended.png" width="170px" /></div>
+        <div class="col-md-2 right_header_button pull-right" data-toggle="modal" data-target="#myModal">&nbsp;</div>
       </div>
     </div>
 
