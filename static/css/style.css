@@ -21,6 +21,12 @@
     overflow: hidden;
 }
 
+#curved_letter a {
+    color: #ffffdc;
+    text-decoration: none;
+    margin-top: 6px;
+}
+
 #curved_letter_child {
     background-color:#2A2C31;
     color:#e7a700;
@@ -33,7 +39,7 @@
 }
 
 body {
-    height: 2000px;
+    background-color: #AAB3AB;
 }
 
 #page-wrap {
@@ -54,32 +60,49 @@ textarea {
 }
 
 .index_left_header_button {
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
+    margin: 5px;
+    left: 5px;
     background-image: url('../img/List-Active.png');
 }
 .index_left_header_button:hover {
-    background-image: url('../img/List-Active.png');
+    background-image: url('../img/List-Hover.png');
 }
 
 .right_header_button {
-    width: 100px;
-    height: 100px;
-    background-image: url'../../img/List-Active.png');
-    text-indent: -99999px;
+    width: 82px;
+    height: 82px;
+    margin: 5px;
+    right: 20px;
+    background-image: url('../img/NewLetter-Active.png');
 }
 .right_header_button:hover {
-    background-image: url'../../img/List-Hover.png');
+    background-image: url('../img/NewLetter-Hover.png');
 }
 
 .left_header_button {
     display: block;
-    width: 100px;
-    height: 100px;
-    background: url('../img/') bottom;
-    text-indent: -99999px;
+    width: 90px;
+    height: 90px;
+    left: 10px;
+    background: url('../img/Map-Active.png') bottom;
 }
 .left_header_button:hover {
-    background-position: 0 0;
+    background-image: url('../img/Map-Hover.png');
 }
 
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.letter_highlight {
+    border: 1px;
+    border-radius: 5px;
+    height:600px;
+    margin-top:50px;
+    box-shadow: 3px 3px 5px 5px #2A2C31;
+    overflow: hidden;
+}

@@ -59,7 +59,7 @@ def letter_single_view(request, letter_pk):
     if (photo_size[0] / photo_size[1] > 1.8):
         return render(request, 'letter/small_picture_text.html', context)
 
-    if (photo_size[0] / photo_size[1] > 2):
+    if (photo_size[0] / photo_size[1] > 3):
         return redner(request, 'small_picture_text', context, html )
     return render(request, 'letter/half_and_half.html', context)
 
