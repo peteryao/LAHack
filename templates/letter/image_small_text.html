@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% load cropping %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="col-md-8 col-md-offset-2 letter_highlight">
+        <img src='{% cropped_thumbnail letter "photo_thumb" %}' style="height:500px; width:120%; right:30px" class="col-md-10"/>
+    <div class="row">
+        <div class="col-md-8" style="">... but now its one of the best things #food.</div>
+        <div class="col-md-4 pull-right right_header_button"></div>
+    </div>
+</div>
+{% endblock %}

@@ -39,8 +39,8 @@ def letter_query_view(request, filter_choice):
 
 def letter_single_view(request, letter_pk):
     context = {}
-    letter = Letter.objects.get(pk=letter_pk)
-    return render(request, 'letter/image_no_text_letter.html', context)
+    context['letter'] = Letter.objects.get(pk=letter_pk)
+    return render(request, 'letter/image_small_text.html', context)
 
 def letter_city_view(request, city_info):
     context = {}

@@ -91,3 +91,12 @@ img.center {
     margin-left: auto;
     margin-right: auto;
 }
+
+.letter_highlight {
+    border: 1px;
+    border-radius: 5px;
+    height:600px;
+    margin-top:20px;
+    box-shadow: 3px 3px 5px 5px #2A2C31;
+    overflow: hidden;
+}

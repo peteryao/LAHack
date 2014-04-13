@@ -1,11 +1,12 @@
 {% extends 'core/base.html' %}
 
+{% load cropping %}
+
 {% block content %}
 <div class="row-fluid">
-        <div class="col-md-8 col-md-offset-2" style="height:600px; width:1000px; margin-top:20px">
-            <div class="col-md-10">fdas</div>
-            <div class="col-md-2">asdf</div>
+        <div class="col-md-8 col-md-offset-2 letter_highlight" style="background-color:#FFFFDC; margin-top:30px;">
+            <img src='{% cropped_thumbnail letter "photo_thumb" %}' style="height:600px; right:30px" class="col-md-10"/>
+        <div class="col-md-1 pull-right right_header_button" style="top:500px"></div>
         </div>
-    </center>
 </div>
 {% endblock %}
