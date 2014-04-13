@@ -6,3 +6,7 @@ def index(request):
     context = {}
     context['index_page'] = True
     return render(request, 'core/index.html', context)
+
+def about(request):
+    context = {}
+    return render (request, 'core/about.html', context)

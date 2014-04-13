@@ -56,7 +56,7 @@
         {% else %}
         <div class="col-md-2 left_header_button" onclick="location.href='{% url 'index' %}'">&nbsp;</div>
         {% endif %}
-        <div class="col-md-1 col-md-offset-4"><img src="{{ STATIC_URL }}img/LogoExtended.png" width="170px" /></div>
+        <div class="col-md-1 col-md-offset-4" onclick="location.href='{% url 'about' %}'"><img src="{{ STATIC_URL }}img/LogoExtended.png" width="170px" /></div>
         {% if not single_pic_view %}<div class="col-md-2 right_header_button pull-right" data-toggle="modal" data-target="#myModal">&nbsp;</div>{% endif %}
       </div>
     </div>
