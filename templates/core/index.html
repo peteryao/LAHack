@@ -14,8 +14,8 @@
     <script src="{{ STATIC_URL }}js/jquery-jvectormap-us-aea-en.js"></script>
     <script>
     var markers = [
-    {latLng: [38.55, -121.74], name: 'Davis', weburl : "/blah/foo"},
-    {latLng: [35.98, -78.91], name: 'Durham', weburl : "/blah/foo-else"}
+    {latLng: [38.55, -121.74], name: 'Davis', weburl : "/letter/city/Davis/0/"},
+    {latLng: [35.98, -78.91], name: 'Durham', weburl : "/letter/city/Durham/0/"}
     ];
 
     $('#map').vectorMap({
@@ -28,7 +28,7 @@
         },
         markers: markers,
         onMarkerClick: function(e, code){
-            alert(markers[code].weburl)
+            window.location.href = markers[code].weburl;
         }
       })
     </script>

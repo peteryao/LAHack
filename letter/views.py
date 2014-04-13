@@ -62,8 +62,10 @@ def letter_single_view(request, letter_pk):
         return redner(request, 'small_picture_text', context, html )
     return render(request, 'letter/half_and_half.html', context)
 
-def letter_city_view(request, city_info):
+def letter_city_view(request, city_info, filter_choice):
     context = {}
+    print city_info
+    print filter_choice
     return render(request, 'letter/city_view.html', context)
 
 def letter_submit(request):
