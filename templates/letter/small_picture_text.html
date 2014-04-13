@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% load cropping %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="col-md-8 col-md-offset-2 letter_highlight" style="background-color:#FFFFDC;">
+        <div class="col-md-4" style="right:30px"><img src='{% cropped_thumbnail letter "photo_thumb" %}' style="height:600px; width:400px" /></div>
+        <div class="col-md-6" style="left:80px">
+            <h3>Dear Davis,</h3>
+            <p> The things that make us who we are. Thank you for helping me discover what those things are.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
