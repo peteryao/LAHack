@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from django.core.context_processors import csrf
 from django.shortcuts import render_to_response
 
-from .models import Letter
+from .models import Letter, CityPhrase
 from core.views import index
 
 def letter_index(request):
@@ -59,7 +59,7 @@ def letter_single_view(request, letter_pk):
     print photo_size[1]
 
     if (photo_size[0] / photo_size[1] > 1.8):
-        return render(request, 'letter/half_and_half    .html', context)
+        return render(request, 'letter/half_and_half.html', context)
 
     if (photo_size[0] / photo_size[1] > 3):
         return redner(request, 'small_picture_text', context, html )
@@ -68,6 +68,7 @@ def letter_single_view(request, letter_pk):
 def letter_city_view(request, city_info, filter_choice):
     context = {}
     city_new = Letter.objects.filter(name__contains=city_info)
+    context['city_phrases'] = CityPhrase.objects.filter(name__contains=city_info)
     context['city_info'] = city_info
     context['recent_letters'] = city_new
     if(int(filter_choice) == 1):

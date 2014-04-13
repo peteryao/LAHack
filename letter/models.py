@@ -25,3 +25,10 @@ class Letter(TimeStampedModel):
 
     def __unicode__(self):
         return self.name
+
+class CityPhrase(TimeStampedModel):
+    name = models.CharField(max_length=500)
+    phrase = models.CharField(max_length=12)
+
+    def __unicode__(self):
+        return self.phrase

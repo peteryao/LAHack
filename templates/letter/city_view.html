@@ -10,7 +10,9 @@
     <div class="row" style="background-color:#FFFFDC; height:160px;">
         <div class="col-md-12"><br /><h4>Associated Phrases:</h4></div>
         <div class="col-md-12"><br />
-            Bikes, Cows, Death Star, Picnic Day, UC Davis, YOLO
+            {% for phrase in city_phrases %}
+            {{phrase.phrase}}{% if not forloop.last %} | {% endif %}
+            {% endfor %}
         </div>
     </div>
     <div class="row" style="background-color:#e7a700; height:80px;"><br />
