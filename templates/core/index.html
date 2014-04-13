@@ -13,6 +13,23 @@
     <script src="{{ STATIC_URL }}js/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="{{ STATIC_URL }}js/jquery-jvectormap-us-aea-en.js"></script>
     <script>
-    $('#map').vectorMap({map: 'us_aea_en'});
+    var markers = [
+    {latLng: [38.55, -121.74], name: 'Davis', weburl : "/blah/foo"},
+    {latLng: [35.98, -78.91], name: 'Durham', weburl : "/blah/foo-else"}
+    ];
+
+    $('#map').vectorMap({
+        map: 'us_aea_en',
+        markerStyle: {
+            initial: {
+            fill: '#F8E23B',
+            stroke: '#383f47'
+            }
+        },
+        markers: markers,
+        onMarkerClick: function(e, code){
+            alert(markers[code].weburl)
+        }
+      })
     </script>
 {% endblock %}
