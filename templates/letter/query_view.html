@@ -13,7 +13,7 @@
         <li {% if filter == 2 %}class="active"{% endif %} style="margin:15px"><a href="{% url 'letter_query_view' 2 %}">Media Only</a></li>
     </ul>
 </div>
-<div class="col-md-10 pull-right" style="z-index:-1;background-color:#AAB3AB; height:720px;" id="page-wrap">
+<div class="col-md-10 pull-right" style="z-index:-1;background-color:#AAB3AB; height:720px; 4" id="page-wrap">
     {% for letter in recent_letters %}
     {% if forloop.counter0|divisibleby:3 %}<div class="container-fluid" {% if forloop.first %}style="padding-top:35px"{% endif %}>{% endif %}
         <div class="col-md-3" id="curved_letter">

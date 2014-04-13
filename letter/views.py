@@ -4,6 +4,9 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 
+from django.core.context_processors import csrf
+from django.shortcuts import render_to_response
+
 from .models import Letter
 
 def letter_index(request):
@@ -40,3 +43,16 @@ def letter_single_view(request, letter_pk):
 def letter_city_view(request, city_info):
     context = {}
     return render(request, 'letter/city_view.html', context)
+
+def letter_submit(request):
+    context = {}
+
+    text_input = request.POST['textarea']
+
+    letter = Letter(text=text_input, name="Los Angeles, California")
+    # path = letter.photo_upload_to(request.FILES['image_upload'])
+    letter.photo = request.FILES['image_upload']
+
+    letter.save()
+
+    return redirect('letter/index.html', context)
