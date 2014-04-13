@@ -3,8 +3,9 @@
 
 {% block content %}
 <div class="row-fluid">
-    <div class="col-md-8 col-md-offset-2 letter_highlight">
-        Hello World.
+    <div class="col-md-8 col-md-offset-2 letter_highlight" style="background-color:#FFFFDC;">
+        <h4>Dear {{letter.name}},</h4>
+        <p>{{letter.text}}</p>
     </div>
 </div>
 {% endblock %}

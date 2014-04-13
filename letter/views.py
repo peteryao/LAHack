@@ -42,9 +42,9 @@ def letter_single_view(request, letter_pk):
     context = {}
     letter = Letter.objects.get(pk=letter_pk)
 
-    context['letter'] = Letter.objects.get(pk=letter_pk)
-    context['letter'].view_number += 1
-    context['letter'].save()
+    letter.view_number += 1
+    letter.save()
+    context['letter'] = letter
 
     if not letter.photo:
         return render(request, 'letter/all_text_no_img.html', context)
