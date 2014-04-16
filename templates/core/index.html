@@ -10,27 +10,43 @@
 {% endblock %}
 
 {% block script %}
-    <script src="{{ STATIC_URL }}js/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="{{ STATIC_URL }}js/jquery-jvectormap-us-aea-en.js"></script>
-    <script>
-    var markers = [
-    {latLng: [38.55, -121.74], name: 'Davis', weburl : "/letter/city/Davis/0/"},
-    {latLng: [35.98, -78.91], name: 'Durham', weburl : "/letter/city/Durham/0/"},
-    {latLng: [34.05, -118.25], name: 'Los Angeles', weburl : "letter/city/Angeles/0/"}
-    ];
+<script>
+var x=document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  }
+function showPosition(position)
+  {
+  x.innerHTML="Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+  }
+</script>
+<script src="{{ STATIC_URL }}js/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="{{ STATIC_URL }}js/jquery-jvectormap-us-aea-en.js"></script>
+<script>
+var markers = [
+{latLng: [38.55, -121.74], name: 'Davis', weburl : "/letter/city/Davis/0/"},
+{latLng: [35.98, -78.91], name: 'Durham', weburl : "/letter/city/Durham/0/"},
+{latLng: [34.05, -118.25], name: 'Los Angeles', weburl : "letter/city/Angeles/0/"}
+];
 
-    $('#map').vectorMap({
-        map: 'us_aea_en',
-        markerStyle: {
-            initial: {
-            fill: '#F8E23B',
-            stroke: '#383f47'
-            }
-        },
-        markers: markers,
-        onMarkerClick: function(e, code){
-            window.location.href = markers[code].weburl;
+$('#map').vectorMap({
+    map: 'us_aea_en',
+    markerStyle: {
+        initial: {
+        fill: '#F8E23B',
+        stroke: '#383f47'
         }
-      })
-    </script>
+    },
+    markers: markers,
+    onMarkerClick: function(e, code){
+        window.location.href = markers[code].weburl;
+    }
+  })
+</script>
 {% endblock %}
