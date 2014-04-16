@@ -63,11 +63,11 @@ WSGI_APPLICATION = 'LYC.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': project('db/data.sqlite'),
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'lyc',
+        'USER': 'lyc',
+        'PASSWORD': 'adi/cvb&',
+        'HOST': 'localhost',
         'PORT': '',
     }
 }
