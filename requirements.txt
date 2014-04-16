@@ -1,6 +1,9 @@
 Django==1.6.2
 PIL==1.1.7
 Pillow==2.4.0
+argparse==1.2.1
 django-image-cropping==0.8
 easy-thumbnails==1.5
+gunicorn==18.0
+psycopg2==2.5.2
 wsgiref==0.1.2
